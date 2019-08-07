@@ -1,4 +1,5 @@
 import React from "react";
+import GitHubUsers from "./GitHubUsers";
 
 class GitHub extends React.Component {
   constructor() {
@@ -6,6 +7,10 @@ class GitHub extends React.Component {
     this.state = {
       user: []
     };
+  }
+
+  componentDidMount() {
+    this.fetchUser();
   }
 
   fetchUser = () => {
@@ -20,27 +25,10 @@ class GitHub extends React.Component {
   };
 
   render() {
-    this.fetchUser();
     return (
       <div>
         <h1>users</h1>
-
-        {this.state.user.map(user => {
-          return (
-            <div>
-              <img
-                width="200"
-                key={user}
-                src={user.avatar_url}
-                alt="Doggo img"
-              />
-
-              <a href={user.html_url}>
-                <h3>{user.login}</h3>
-              </a>
-            </div>
-          );
-        })}
+        <GitHubUsers user={this.state.user} />
       </div>
     );
   }
