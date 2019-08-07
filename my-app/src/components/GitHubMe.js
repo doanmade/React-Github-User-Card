@@ -1,8 +1,7 @@
 import React from "react";
-import GitHubMe from "./GitHubMe";
-import GitHubUsers from "./GitHubUsers";
+import GitMe from "./GitMe";
 
-class GitHub extends React.Component {
+class GitHubMe extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -26,7 +25,7 @@ class GitHub extends React.Component {
   //     });
   // };
   fetchUser = () => {
-    fetch(`https://api.github.com/users/doanmade/followers`)
+    fetch(`https://api.github.com/users/doanmade`)
       .then(response => {
         return response.json();
       })
@@ -39,16 +38,10 @@ class GitHub extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <h1>My Profile</h1>
-          <GitHubMe />
-        </div>
-        <hr />
-        <h1>My Followers</h1>
-        <GitHubUsers user={this.state.user} />
+        <GitMe user={this.state.user} />
       </div>
     );
   }
 }
 
-export default GitHub;
+export default GitHubMe;
