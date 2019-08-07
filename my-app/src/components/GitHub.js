@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class GitHub extends React.Component {
   constructor() {
@@ -36,9 +35,9 @@ class GitHub extends React.Component {
                 alt="Doggo img"
               />
 
-              <Link to={user.html_url}>
+              <a href={user.html_url}>
                 <h3>{user.login}</h3>
-              </Link>
+              </a>
             </div>
           );
         })}
